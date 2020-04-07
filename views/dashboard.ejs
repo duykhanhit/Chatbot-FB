@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dạy mèo nói nào các con vợ</title>
+    <style>
+        body{
+            height: 100vh;
+            margin: 0;
+        }
+.bg-form {
+    background: linear-gradient(180deg, rgba(75,207,250,1) 0%, rgba(85,228,68,1) 75%, rgba(139,239,53,1) 100%);
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.layer-form {
+    background-color: #0097e6;
+    padding: 15px 50px;
+    height: 50%;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 3;
+}
+.layer-form input {
+    width: 100%;
+    height: 20px;
+    border: 0;
+    background-color: #0097e6;
+    border-bottom: 1px solid #fff;
+}
+.layer-form input:focus {
+    outline: none;
+    border-bottom: 2px solid #fff;
+}
+.layer-form input::placeholder {
+    padding-left: 15px;
+    color: #fff;
+}
+.layer-form button {
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 0;
+    background-color: #0a3d62;
+    color: #fff;
+}
+.layer-form button:hover {
+    background-color: #0c2461;
+}
+.layer-form a {
+    color: #2f3640;
+}
+
+.formall{
+    height: 60%;
+    width: 30%;
+}
+.dashboard{
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #F72A2C;
+    border-radius: 5px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="bg-form">
+
+        <%if(data.error){ %>
+        <div class="formall">
+            <div class="dashboard">
+                <ul>
+                    <%for(error of data.error) {%>
+                    <li><%= error%></li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <%}%>
+        <%if(data.success){ %>
+            <div class="formall">
+                <div class="dashboard">
+                    <ul>
+                        <li><%= data.success%></li>
+                    </ul>
+                </div>
+            </div>
+            <%}%>
+        <div class="layer-form">
+            <form method="POST">
+                <label for="question">Nhập câu hỏi</label>
+                <input type="text" name="question" value="" placeholder="Bạn có người yêu chưa" /> <br>
+                <label for="answer">Nhập câu trả lời</label>
+                <input type="text" name="answer" value="" placeholder="Tôi có nhiều người yêu lắm 😂" />
+                <br>
+                <button type="submit">Thêm</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
